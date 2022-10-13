@@ -18,6 +18,7 @@ html {
 
 body {
     display: flex;
+
     flex-direction: column;
 }
 
@@ -27,7 +28,7 @@ header {
     place-content: center;
     margin: 2em;
 
-    animation: 1s linear 0s 1 fromTop;
+    animation: .7s linear 0s 1 fromTop;
 
     .img {
         opacity: 0.7;
@@ -74,8 +75,8 @@ header {
 }
 
 
-main {
-    animation: 1s linear 0s 1 fadeIn;
+.text {
+    animation: .7s linear 0s 1 fadeIn;
 
     //background-color: $b6;
     margin: auto;
@@ -87,7 +88,9 @@ main {
     margin-bottom: 2em;
     display: flex;
     flex-direction: column;
+}
 
+section {
     h6 {
         font-weight: 200;
         color: $b5;
@@ -107,28 +110,15 @@ main {
 }
 
 .social {
-
-    $flex-gap: 3em;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     flex-wrap: wrap;
-    gap: $flex-gap;
+    gap: 3em;
     align-items: center;
     justify-content: center;
     place-items: center;
-    margin: 4em 0 auto 0;
-
-    a:not(.op-v) {
-        opacity: 0;
-    }
-
-    a:not(.op-v):nth-child(2n) {
-        transform: translateX(30px);
-    }
-
-    a:not(.op-v):not(:nth-child(2n)) {
-        transform: translateX(-30px);
-    }
+    margin: 4em auto auto;
+    max-width: 400px;
 
     a {
         padding: 0;
@@ -141,22 +131,20 @@ main {
         cursor: pointer;
         user-select: none;
         text-decoration: none;
-        transition: all .3s linear;
         position: relative;
         transform-style: preserve-3d;
         transform-origin: top center;
 
-        i,
-        h6 {
-            transition: all .3s linear;
-        }
+        transition: transform .3s ease-in-out;
 
         h6 {
             margin: 0;
             font-weight: 200;
         }
 
-        &:hover, &:focus, &:focus-visible {
+        &:hover,
+        &:focus,
+        &:focus-visible {
             transform: rotate3d(2, -1, 2, 0.1turn);
         }
 
@@ -167,13 +155,46 @@ main {
                 color: $b3;
             }
         }
+
+        &:nth-child(2n) {
+            animation: toRight .7s;
+        }
+
+        &:not(:nth-child(2n)) {
+            animation: toLeft .7s;
+        }
+
+        @keyframes toRight {
+            from {
+                transform: translateX(-30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes toLeft {
+            from {
+                transform: translateX(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
     }
 }
 
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: translateY(200px);
+        transform: translateY(60px);
     }
 
     100% {

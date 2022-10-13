@@ -19,8 +19,8 @@ header {
   place-items: center;
   place-content: center;
   margin: 2em;
-  -webkit-animation: 1s linear 0s 1 fromTop;
-          animation: 1s linear 0s 1 fromTop;
+  -webkit-animation: 0.7s linear 0s 1 fromTop;
+          animation: 0.7s linear 0s 1 fromTop;
 }
 header .img {
   opacity: 0.7;
@@ -59,9 +59,9 @@ header h4 {
   color: #1985A1;
 }
 
-main {
-  -webkit-animation: 1s linear 0s 1 fadeIn;
-          animation: 1s linear 0s 1 fadeIn;
+.text {
+  -webkit-animation: 0.7s linear 0s 1 fadeIn;
+          animation: 0.7s linear 0s 1 fadeIn;
   margin: auto;
   width: 80%;
   max-width: 600px;
@@ -71,16 +71,17 @@ main {
   display: flex;
   flex-direction: column;
 }
-main h6 {
+
+section h6 {
   font-weight: 200;
   color: #1985A1;
   font-size: large;
 }
-main h6 .bolder {
+section h6 .bolder {
   font-weight: 800;
   color: #1985A1;
 }
-main h6 .bracket {
+section h6 .bracket {
   color: #1985A1;
   font-weight: 200;
   font-family: serif;
@@ -94,16 +95,8 @@ main h6 .bracket {
   align-items: center;
   justify-content: center;
   place-items: center;
-  margin: 4em 0 auto 0;
-}
-.social a:not(.op-v) {
-  opacity: 0;
-}
-.social a:not(.op-v):nth-child(2n) {
-  transform: translateX(30px);
-}
-.social a:not(.op-v):not(:nth-child(2n)) {
-  transform: translateX(-30px);
+  margin: 4em auto auto;
+  max-width: 400px;
 }
 .social a {
   padding: 0;
@@ -119,14 +112,10 @@ main h6 .bracket {
       -ms-user-select: none;
           user-select: none;
   text-decoration: none;
-  transition: all 0.3s linear;
   position: relative;
   transform-style: preserve-3d;
   transform-origin: top center;
-}
-.social a i,
-.social a h6 {
-  transition: all 0.3s linear;
+  transition: transform 0.3s ease-in-out;
 }
 .social a h6 {
   margin: 0;
@@ -138,11 +127,59 @@ main h6 .bracket {
 .social a:focus *, .social a:focus-within *, .social a:focus-visible * {
   color: #46494C;
 }
+.social a:nth-child(2n) {
+  -webkit-animation: toRight 0.7s;
+          animation: toRight 0.7s;
+}
+.social a:not(:nth-child(2n)) {
+  -webkit-animation: toLeft 0.7s;
+          animation: toLeft 0.7s;
+}
+@-webkit-keyframes toRight {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes toRight {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes toLeft {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes toLeft {
+  from {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(200px);
+    transform: translateY(60px);
   }
   100% {
     opacity: 1;
@@ -153,7 +190,7 @@ main h6 .bracket {
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(200px);
+    transform: translateY(60px);
   }
   100% {
     opacity: 1;
