@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;800&display=swap');
+
+$b1: #DCDCDD;
+$b2: #C5C3C6;
+$b3: #46494C;
+$b4: #4C5C68;
+$b5: #1985A1;
+
+body,
+html {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: 'Dosis', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: grid;
+    place-items: center;
+    place-content: center;
+    margin: 2em;
+
+    animation: 1s linear 0s 1 fromTop;
+
+    .img {
+        opacity: 0.7;
+        margin: 1em auto 2em;
+
+        box-shadow: inset $b4 0px 0px 30px 8px,
+            $b3 0 0 10px 0;
+        background: url(https://avatars.githubusercontent.com/u/68661509?v=4);
+        background-size: contain;
+        display: block;
+        border-radius: 100%;
+
+        width: 100px;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+
+
+        img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+        }
+    }
+
+
+    h1,
+    h4 {
+        padding: 0;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 4rem;
+        line-height: 0.8;
+        font-weight: 800;
+        color: $b5;
+    }
+
+    h4 {
+        letter-spacing: 1px;
+        user-select: none;
+        font-weight: 800;
+        color: $b5;
+    }
+}
+
+
+main {
+    animation: 1s linear 0s 1 fadeIn;
+
+    //background-color: $b6;
+    margin: auto;
+    width: 80%;
+    max-width: 600px;
+    padding: 2em;
+    //box-shadow: $b2 0 0 20px 0;
+    flex-grow: 1;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+
+    h6 {
+        font-weight: 200;
+        color: $b5;
+        font-size: large;
+
+        .bolder {
+            font-weight: 800;
+            color: $b5;
+        }
+
+        .bracket {
+            color: $b5;
+            font-weight: 200;
+            font-family: serif;
+        }
+    }
+}
+
+.social {
+
+    $flex-gap: 3em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
+    gap: $flex-gap;
+    align-items: center;
+    justify-content: center;
+    place-items: center;
+    margin: 4em 0 auto 0;
+
+    a:not(.op-v) {
+        opacity: 0;
+    }
+
+    a:not(.op-v):nth-child(2n) {
+        transform: translateX(30px);
+    }
+
+    a:not(.op-v):not(:nth-child(2n)) {
+        transform: translateX(-30px);
+    }
+
+    a {
+        padding: 0;
+        margin: 0;
+        color: $b5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+        text-decoration: none;
+        transition: all .3s linear;
+        position: relative;
+        transform-style: preserve-3d;
+        transform-origin: top center;
+
+        i,
+        h6 {
+            transition: all .3s linear;
+        }
+
+        h6 {
+            margin: 0;
+            font-weight: 200;
+        }
+
+        &:hover, &:focus, &:focus-visible {
+            transform: rotate3d(2, -1, 2, 0.1turn);
+        }
+
+        &:focus,
+        &:focus-within,
+        &:focus-visible {
+            * {
+                color: $b3;
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0x);
+    }
+}
+
+@keyframes fromTop {
+    0% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn2 {
+    0% {
+        opacity: 0;
+    }
+
+    33% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bgchange {
+    from {
+        background: linear-gradient(to right,
+                $b2,
+                $b1 )
+    }
+
+    to {
+        background: linear-gradient(to right,
+                $b1,
+                $b2,
+            )
+    }
+}
+
+
+body {
+    background: linear-gradient(130deg,
+            $b1,
+            #1986a165,
+            $b2 );
+    background-size: 200% 200%;
+
+    $timing: 7s;
+    $timing-function: ease;
+
+    -webkit-animation: Animation $timing $timing-function infinite;
+    -moz-animation: Animation $timing $timing-function infinite;
+    animation: Animation $timing $timing-function infinite;
+}
+
+@keyframes Animation {
+    0% {
+        background-position: 10% 0%
+    }
+
+    50% {
+        background-position: 91% 100%
+    }
+
+    100% {
+        background-position: 10% 0%
+    }
+}
+
+@-webkit-keyframes Animation {
+    0% {
+        background-position: 10% 0%
+    }
+
+    50% {
+        background-position: 91% 100%
+    }
+
+    100% {
+        background-position: 10% 0%
+    }
+}
+
+@-moz-keyframes Animation {
+    0% {
+        background-position: 10% 0%
+    }
+
+    50% {
+        background-position: 91% 100%
+    }
+
+    100% {
+        background-position: 10% 0%
+    }
+}
