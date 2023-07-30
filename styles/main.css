@@ -131,13 +131,55 @@ section {
   min-width: 100%;
 }
 section:first-child {
-  height: 100vh;
+  min-height: 100vh;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
 }
 section:nth-child(2) {
-  height: 70vh;
+  min-height: 100vh;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
 }
 section:nth-child(3) {
-  height: 70vh;
+  min-height: 70vh;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
+section:nth-child(3) form {
+  margin: 6rem 0;
+}
+section:nth-child(3) form input,
+section:nth-child(3) form textarea,
+section:nth-child(3) form button {
+  width: 80%;
+  max-width: 600px;
+  padding: 0.5em;
+  margin: 0.5em 0;
+  border: 1px solid rgb(222, 222, 255);
+  border-radius: 15px;
+  background: transparent;
+  color: rgb(222, 222, 255);
+  font-size: 1.2rem;
+  font-weight: 200;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  font-family: "Dosis", sans-serif;
+  box-shadow: 0 0 10px 0 #C5C3C6;
+}
+section:nth-child(3) form input:focus,
+section:nth-child(3) form textarea:focus,
+section:nth-child(3) form button:focus {
+  border: 1px solid #b6f0ff;
+}
+section:nth-child(3) form button {
+  cursor: pointer;
+  font-weight: 800;
+  border: 1px solid rgb(222, 222, 255);
+  transition: all 0.2s ease-in-out;
+}
+section:nth-child(3) form button:hover {
+  background-color: #b6f0ff;
+  color: #283036;
 }
 section:first-child {
   animation: 0.7s linear 0s 1 fadeIn;
@@ -148,7 +190,6 @@ section .bolder {
 }
 section .bracket::before {
   content: "{";
-  margin-left: 0.5em;
 }
 section .bracket::after {
   content: "}";
@@ -158,11 +199,13 @@ section .bracket::after {
 .social {
   display: grid;
   flex-wrap: wrap;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  justify-content: center;
-  place-items: center;
+  grid-template-columns: 2fr 2fr 2fr;
+  gap: clamp(1rem, 7vw, 6rem);
   color: rgb(222, 222, 255);
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin: 0 auto;
+  padding-bottom: 4rem;
 }
 .social a {
   padding: 0;

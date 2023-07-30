@@ -49,6 +49,7 @@ body {
     min-height: fill-available;
     min-height: -webkit-fill-available;
 }
+
 html {
     height: fill-available;
     height: -webkit-fill-available;
@@ -155,17 +156,61 @@ section {
     font-size: large;
 
     min-width: 100%;
-    
+
     &:first-child {
-        height: 100vh;
+        min-height: 100vh;
+        max-height: fit-content;
     }
 
     &:nth-child(2) {
-        height: 70vh;
+        min-height: 100vh;
+        max-height: fit-content;
     }
-    
+
     &:nth-child(3) {
-        height: 70vh;
+        min-height: 70vh;
+        max-height: fit-content;
+
+        form {
+
+            margin: 6rem 0;
+
+            input,
+            textarea,
+            button {
+                width: 80%;
+                max-width: 600px;
+                padding: 0.5em;
+                margin: 0.5em 0;
+                border: 1px solid $b6;
+                border-radius: 15px;
+                background: transparent;
+                color: $b6;
+                font-size: 1.2rem;
+                font-weight: 200;
+                outline: none;
+                transition: all 0.2s ease-in-out;
+                font-family: 'Dosis', sans-serif;
+
+                box-shadow: 0 0 10px 0 $b2;
+
+                &:focus {
+                    border: 1px solid $b5;
+                }
+            }
+
+            button {
+                cursor: pointer;
+                font-weight: 800;
+                border: 1px solid $b6;
+                transition: all 0.2s ease-in-out;
+
+                &:hover {
+                    background-color: $b5;
+                    color: $b4;
+                }
+            }
+        }
     }
 
 
@@ -181,7 +226,7 @@ section {
 
     .bracket::before {
         content: "{";
-        margin-left: 0.5em;
+        // margin-left: 6px;
     }
 
     .bracket::after {
@@ -194,11 +239,14 @@ section {
 .social {
     display: grid;
     flex-wrap: wrap;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    justify-content: center;
-    place-items: center;
+    grid-template-columns: 2fr 2fr 2fr;
+    gap: clamp(1rem, 7vw, 6rem);
     color: $b6;
+
+    max-width: fit-content;
+    margin: 0 auto;
+
+    padding-bottom: 4rem;
 
     a {
         padding: 0;
@@ -256,7 +304,7 @@ section {
             font-weight: 200;
         }
 
-       
+
 
         &:focus,
         &:focus-within,
