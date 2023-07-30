@@ -27,7 +27,7 @@ html {
     }
 
     ::-webkit-scrollbar-thumb {
-        background: rgb(36, 36, 48);
+        background: #242430;
         border-radius: 10px;
     }
 
@@ -42,6 +42,16 @@ html {
     ::-webkit-scrollbar-corner {
         background: $b1;
     }
+}
+
+body {
+    min-height: 100vh;
+    min-height: fill-available;
+    min-height: -webkit-fill-available;
+}
+html {
+    height: fill-available;
+    height: -webkit-fill-available;
 }
 
 .header {

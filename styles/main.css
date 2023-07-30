@@ -18,7 +18,7 @@ html ::-webkit-scrollbar-track {
 }
 body ::-webkit-scrollbar-thumb,
 html ::-webkit-scrollbar-thumb {
-  background: rgb(36, 36, 48);
+  background: #242430;
   border-radius: 10px;
 }
 body ::-webkit-scrollbar-thumb:hover,
@@ -32,6 +32,19 @@ html ::-webkit-scrollbar-thumb:active {
 body ::-webkit-scrollbar-corner,
 html ::-webkit-scrollbar-corner {
   background: #DCDCDD;
+}
+
+body {
+  min-height: 100vh;
+  min-height: -moz-available;
+  min-height: fill-available;
+  min-height: -webkit-fill-available;
+}
+
+html {
+  height: -moz-available;
+  height: fill-available;
+  height: -webkit-fill-available;
 }
 
 .header {
