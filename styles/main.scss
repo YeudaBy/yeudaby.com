@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;700;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 
 $b1: #DCDCDD;
 $b2: #C5C3C6;
@@ -122,6 +123,9 @@ html {
 
     h2 {
         flex-grow: 8;
+        font-family: 'Bree Serif', serif;
+        text-transform: uppercase;
+        letter-spacing: 3px;
     }
 }
 
