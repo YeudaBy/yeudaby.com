@@ -46,6 +46,8 @@ section {
     height: 100vh;
     padding: 3rem;
     position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .bracket::before {
@@ -68,15 +70,11 @@ section {
     flex-direction: column;
     padding-top: 6rem;
 
-    .img {
+    .profile {
         background: url(https://avatars.githubusercontent.com/u/68661509?v=4);
         background-size: contain;
-        display: block;
         border-radius: 50%;
-
-        width: 100px;
-        aspect-ratio: 1 / 1;
-        overflow: hidden;
+        z-index: -1;
     }
 
     h1,
@@ -105,12 +103,12 @@ section {
         color: $b6;
     }
 
-    img {
+    .down {
         // filter the color of the image
         transform: scale(1.5);
-        justify-self: flex-end;
-        margin-top: auto;
-        margin-bottom: 50%;
+        z-index: -1;
+        margin-top: -1;
+        margin-top: 6rem;
     }
 
     &::before {
@@ -155,10 +153,13 @@ section {
     }
 
     .icon {
-        color: $b5;
+        color: $b6;
         font-size: 2rem;
         text-align: center;
-        margin: 20% auto;
+        position: absolute;
+        bottom: calc(35% + 4rem);
+        right: 0;
+        left: 0;
     }
 
     &::before {
@@ -166,7 +167,7 @@ section {
         position: absolute;
         bottom: 35%;
         left: 3rem;
-        width: calc(75%);
+        width: 75%;
         height: 1rem;
         background: linear-gradient(214deg, $b1 0%, $b11 100%);
         z-index: -1;
@@ -177,7 +178,7 @@ section {
         position: absolute;
         bottom: calc(35% + 2rem);
         right: 3rem;
-        width: calc(75%);
+        width: 75%;
         height: 1rem;
         background: linear-gradient(214deg, $b11 0%, $b1 100%);
         z-index: -1;
@@ -225,7 +226,6 @@ section {
         textarea,
         button {
             width: 100%;
-            max-width: 600px;
             padding: 0.5em;
             margin: 0.5em 0;
             border: 1px solid $b15;
@@ -277,6 +277,7 @@ section {
 
     max-width: fit-content;
     margin: 0 auto;
+    padding-top: 2rem;
 
     padding-bottom: 4rem;
 
