@@ -1,14 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+$b1: #EEFBF5;
+$b2: #CDF3E2;
+$b3: #ADEBCF;
+$b4: #8CE3BC;
+$b5: #6BDBA9;
+$b6: #6BDBA9;
+$b7: #4ACB96;
+$b8: #2BBB82;
+$b9: #0BAA6D;
+$b10: #009A59;
+$b11: #008A46;
+$b12: #007A33;
+$b13: #006A20;
+$b14: #005A0D;
+$b15: #004A00;
 
-$b1: #DCDCDD;
-$b2: #C5C3C6;
-$b3: #46494C;
-$b4: #283036;
-$b5: #b6f0ff;
-$b6: rgb(222, 222, 255);
-
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap');
 
 body,
 html {
@@ -16,34 +22,13 @@ html {
     width: 100%;
     margin: 0;
     box-sizing: border-box;
-    text-align: center;
-    font-family: 'Dosis', sans-serif;
+}
 
-    // scroll bar
-    ::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: rgba(36, 36, 48, 0.707);
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: #242430;
-        border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: $b4;
-    }
-
-    ::-webkit-scrollbar-thumb:active {
-        background: $b4;
-    }
-
-    ::-webkit-scrollbar-corner {
-        background: $b1;
-    }
+*,
+input,
+textarea,
+button {
+    font-family: "Alegreya", serif;
 }
 
 body {
@@ -57,20 +42,33 @@ html {
     height: -webkit-fill-available;
 }
 
+section {
+    height: 100vh;
+    padding: 3rem;
+    position: relative;
+}
+
+.bracket::before {
+    content: "{";
+    margin: 0 0.25em;
+    color: $b6;
+}
+
+.bracket::after {
+    content: "}";
+    margin: 0 0.25em;
+    color: $b6;
+}
+
+
 .header {
     display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
-    align-items: center;
-
-    padding: 2em 0;
-
-    animation: .7s linear 0s 1 fromTop;
+    padding-top: 6rem;
 
     .img {
-        opacity: 0.7;
-        margin: 1em auto 2em;
-
-        box-shadow: 0 0 20px 0 $b2;
         background: url(https://avatars.githubusercontent.com/u/68661509?v=4);
         background-size: contain;
         display: block;
@@ -79,21 +77,6 @@ html {
         width: 100px;
         aspect-ratio: 1 / 1;
         overflow: hidden;
-
-
-        img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-        }
-    }
-
-    .content {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
     }
 
     h1,
@@ -103,151 +86,186 @@ html {
     }
 
     h1 {
-        font-size: 8rem;
-        line-height: 0.9;
+        font-size: 6rem;
         font-weight: 800;
-        // color: $b5;
-
-        font-family: 'Lobster Two', cursive;
-        flex-grow: 1;
-
-        background: linear-gradient(214deg, #8de8ff 0%, #9e9eff 70%);
+        line-height: .75;
+        font-optical-sizing: auto;
+        color: $b5;
+        font-family: "Alegreya", serif;
+        background: linear-gradient(214deg, $b3 0%, $b11 100%);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-    }
-
-    .spacer {
-        flex-grow: 1;
+        padding: 3rem 0;
     }
 
     h2 {
-        flex-grow: 8;
-        font-family: 'Bree Serif', serif;
-        text-transform: uppercase;
-        letter-spacing: 3px;
+        font-size: 2rem;
+        font-weight: 200;
+        color: $b6;
+    }
+
+    img {
+        // filter the color of the image
+        transform: scale(1.5);
+        justify-self: flex-end;
+        margin-top: auto;
+        margin-bottom: 50%;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 3rem;
+        left: 3rem;
+        width: calc(100% - 6rem);
+        height: 1rem;
+        background: linear-gradient(214deg, $b3 0%, $b11 100%);
+        z-index: -1;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 3rem;
+        right: 3rem;
+        width: 1rem;
+        height: calc(150%);
+        background: linear-gradient(214deg, $b3 0%, $b11 50%, #fff 85%);
+        z-index: -1;
     }
 }
 
 
 .text {
-    width: 80%;
-    max-width: 600px;
+    h2 {
+        border-bottom: $b5 2px solid;
+    }
+
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 
     letter-spacing: 0.9px;
-    line-height: 2rem;
-
-    gap: 3rem;
-
-    text-align: justify;
-    text-align-last: center;
+    text-align: left;
 
     p {
-        padding: 0 3rem;
-        max-width: 600px;
-        margin: 0 auto;
+        width: 80%;
+    }
+
+    .icon {
+        color: $b5;
+        font-size: 2rem;
+        text-align: center;
+        margin: 20% auto;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 35%;
+        left: 3rem;
+        width: calc(75%);
+        height: 1rem;
+        background: linear-gradient(214deg, $b1 0%, $b11 100%);
+        z-index: -1;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: calc(35% + 2rem);
+        right: 3rem;
+        width: calc(75%);
+        height: 1rem;
+        background: linear-gradient(214deg, $b11 0%, $b1 100%);
+        z-index: -1;
     }
 }
 
-section {
-    font-weight: 200;
-    color: $b6;
-    font-size: large;
+.contact {
 
-    min-width: 100%;
+    h2 {
+        border-bottom: $b5 2px solid;
+        position: relative;
 
-    &:first-child {
-        min-height: 100vh;
-        max-height: fit-content;
-    }
+        &::before {
+            content: "";
+            position: absolute;
+            top: -120%;
+            right: 0;
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(214deg, $b3 0%, $b11 100%);
+            z-index: -1;
+            border-radius: 100%;
+            opacity: 0.5;
+        }
 
-    &:nth-child(2) {
-        min-height: 100vh;
-        max-height: fit-content;
-    }
-
-    &:nth-child(3) {
-        min-height: 70vh;
-        max-height: fit-content;
-
-        form {
-
-            margin: 6rem 0;
-
-            input,
-            textarea,
-            button {
-                width: 80%;
-                max-width: 600px;
-                padding: 0.5em;
-                margin: 0.5em 0;
-                border: 1px solid rgba(222, 222, 255, 0.521);
-                border-radius: 15px;
-                background: transparent;
-                color: $b6;
-                font-size: 1.2rem;
-                font-weight: 200;
-                outline: none;
-                transition: all 0.2s ease-in-out;
-                font-family: 'Dosis', sans-serif;
-                resize: none;
-
-                box-shadow: 0 0 10px 0 $b2;
-
-                &:focus {
-                    border: 1px solid $b5;
-                }
-            }
-
-            button {
-                cursor: pointer;
-                font-weight: 800;
-                border: 1px solid $b6;
-                transition: all 0.2s ease-in-out;
-
-                &:hover {
-                    background-color: $b5;
-                    color: $b4;
-                }
-            }
+        &::after {
+            content: "";
+            position: absolute;
+            top: -100%;
+            right: 4.5rem;
+            width: 2rem;
+            height: 2rem;
+            background: linear-gradient(195deg, $b3 0%, $b11 100%);
+            z-index: -1;
+            border-radius: 100%;
+            opacity: 0.5;
         }
     }
 
+    form {
 
-    &:first-child {
-        animation: .7s linear 0s 1 fadeIn;
+        margin-bottom: 2rem;
+
+        input,
+        textarea,
+        button {
+            width: 100%;
+            max-width: 600px;
+            padding: 0.5em;
+            margin: 0.5em 0;
+            border: 1px solid $b15;
+            border-radius: .5rem;
+            background: transparent;
+            color: $b6;
+            font-size: 1.2rem;
+            font-weight: 200;
+            outline: none;
+            transition: all 0.2s ease-in-out;
+            resize: none;
+
+            box-shadow: 0 0 10px 0 $b2;
+
+            &:focus {
+                border: 1px solid $b5;
+            }
+        }
+
+        button {
+            cursor: pointer;
+            font-weight: 800;
+            border: 1px solid $b6;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                background-color: $b5;
+                color: $b15;
+            }
+
+        }
+
+        .bolder {
+            font-weight: 800;
+            color: $b6;
+        }
+
+
+
     }
-
-
-    .bolder {
-        font-weight: 800;
-        color: $b6;
-    }
-
-    .bracket::before {
-        content: "{";
-        // margin-left: 6px;
-    }
-
-    .bracket::after {
-        content: "}";
-        margin-right: 0.5em;
-    }
-
-    h2 {
-        letter-spacing: 3px;
-        user-select: none;
-        font-weight: 800;
-        color: $b5;
-        background: linear-gradient(214deg, #8de8ff 0%, #9e9eff 100%);
-        font-family: 'Lobster Two', cursive;
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
 }
 
 .social {
@@ -265,7 +283,7 @@ section {
     a {
         padding: 0;
         margin: 0;
-        color: $b6;
+        color: $b12;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -277,13 +295,11 @@ section {
         font-size: 1.6rem;
         letter-spacing: 1px;
 
-
-
         i {
             font-size: 2rem;
-            margin-bottom: 0.5em;
-            background-color: $b6;
-            color: rgb(36, 36, 48);
+            margin-bottom: 0.15em;
+            background-color: $b4;
+            color: rgb(0, 0, 0);
             padding: 12px;
             border-radius: 50%;
             height: 50px;
@@ -291,8 +307,6 @@ section {
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 1px -4px 6px 2px inset;
-
             transition: transform .3s ease-in-out;
 
             &:hover,
@@ -335,139 +349,5 @@ section {
             animation: toLeft .7s;
         }
 
-        @keyframes toRight {
-            from {
-                transform: translateX(-5px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes toLeft {
-            from {
-                transform: translateX(5px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
     }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0x);
-    }
-}
-
-@keyframes fromTop {
-    0% {
-        transform: translateY(-15px);
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn2 {
-    0% {
-        opacity: 0;
-    }
-
-    33% {
-        opacity: 0.2;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes bgchange {
-    from {
-        background: linear-gradient(to right,
-                $b2,
-                $b1 )
-    }
-
-    to {
-        background: linear-gradient(to right,
-                $b1,
-                $b2,
-            )
-    }
-}
-
-
-body {
-    background: linear-gradient(135deg, #2b2b46 0%, #093743 70%, #170000 100%) no-repeat fixed;
-    // background: linear-gradient(130deg,
-    //         $b1,
-    //         #1986a165,
-    //         $b2 );
-    background-size: 200% 200%;
-
-    $timing: 7s;
-    $timing-function: ease;
-
-    -webkit-animation: Animation $timing $timing-function infinite;
-    -moz-animation: Animation $timing $timing-function infinite;
-    animation: Animation $timing $timing-function infinite alternate-reverse;
-}
-
-@keyframes Animation {
-    from {
-        background-position: 0% 0%
-    }
-
-    to {
-        background-position: 100% 100%
-    }
-
-    // 100% {
-    //     background-position: 70% 30%
-    // }
-}
-
-@-webkit-keyframes Animation {
-    from {
-        background-position: 0% 0%
-    }
-
-    to {
-        background-position: 100% 100%
-    }
-
-}
-
-@-moz-keyframes Animation {
-    from {
-        background-position: 0% 0%
-    }
-
-    to {
-        background-position: 100% 100%
-    }
-
 }
