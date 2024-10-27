@@ -42,15 +42,32 @@
     <meta name="twitter:description" content="Front End Developer" />
     <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/68661509?v=4" />
     <meta name="twitter:url" content="https://yeudaby.com" />
+
+
+    <script>
+        function scrollCarousel(direction) {
+            const itemsContainer = document.querySelector(".items");
+            const scrollAmount = itemsContainer.clientWidth * 8; // Adjust scroll distance
+            itemsContainer.scrollBy({
+                left: direction * scrollAmount,
+                behavior: "smooth",
+            });
+        }
+    
+    </script>
 </head>
 
 <body>
 
     <main>
         <section class="header">
-            <img class="profile" src="https://avatars.githubusercontent.com/u/68661509?v=4" alt="image" width="125px"
-                height="125px">
-            <h1>Yeuda<br />By</h1>
+            <h1>
+                <span class="firstName">Yeuda</span>
+                <img class="profile" src="https://avatars.githubusercontent.com/u/68661509?v=4" alt="image" width="75px"
+                    height="75px">
+                <br />
+                <span class="lastName">Borodyanski</span>
+            </h1>
             <h2>Front End Developer</h2>
             <img class="down" width="100px" height="100px" src="/images/down.jpeg" alt="down" />
         </section>
@@ -58,19 +75,32 @@
 
         <section class="text">
             <h2 class="bolder">Hey!</h2>
-            <p>My name is <span class="bolder bracket">Yeuda By</span> and I am 21 years old front-end developer from
-                Israel.</p>
+            <p>My name is Yeuda Borodyanski and I am 22 years old frontend developer from Israel.</p>
             <p>
-                I have extensive experience with JavaScript, TypeScript & NextJs in the web hand, and Android
-                development with Kotlin & Jatpack Compose in the mobile hand.
+                I am an experienced front-end developer with a specialization in creating beautiful and complex user
+                interfaces.
             </p>
             <p>
-                I also worked with React Native, Flutter, Python, Micronout, Postgres & more backend technologies.
+                I have experienced with JavaScript & TypeScript, ReactJS, Kotlin, Jatpack Compose , Flutter, Python,
+                Micronout, Postgres & more backend technologies.
             </p>
             <i class="fa-solid fa-handshake icon"></i>
         </section>
 
 
+        <section class="portfolio" id="portfolio">
+            <h2>Yeah, I have proof...</h2>
+
+            <div class="items"></div>
+            <div class="carousel-container">
+                <button class="carousel-button left" onclick="scrollCarousel(-1)">&#10094;</button>
+                <div class="items">
+                    <!-- Carousel items go here -->
+                </div>
+                <button class="carousel-button right" onclick="scrollCarousel(1)">&#10095;</button>
+            </div>
+
+        </section>
 
         <section class="contact">
 
@@ -125,5 +155,106 @@
     </main>
 
 </body>
+
+<script>
+
+    const items = [
+        {
+            label: "Jusic • Kosher Music Player",
+            description: "Jusic is a music player that allows you to listen to music, just like in Spotify. The app is designed for the Jewish community and is intended for listening to kosher music. powered by Lomdaat technologies.",
+            image: "/images/jusic-screenshot.jpeg",
+            url: "https://jusic.app/",
+            inDevelopment: true,
+            emoji: "🎵"
+        },
+        {
+            label: "Call Counter • Yedidim Hotline",
+            description: "Call Counter is an Android app that allows you to track the number of calls made by the Yedidim hotline. The system is designed to help the dispatchers track the number of calls made to and by the hotline and to help keep the motivation up.",
+            image: "/images/call-counter-screenshot.jpeg",
+            url: "https://github.com/YeudaBy/YedidimCallCounter",
+            inDevelopment: false,
+            emoji: "📞"
+        },
+        {
+            label: "K-tube • Kosher YouTube",
+            description: "K-tube is a web app that allows you to watch YouTube videos in a kosher way. The app is designed for Hadran community and is intended for watching only restricted videos. powered by Lomdaat technologies.",
+            image: "/images/ktube-screenshot.jpeg",
+            url: "https://ktube.app/",
+            inDevelopment: true,
+            emoji: "📺"
+        }
+    ]
+
+    function load() {
+        const itemsContainer = document.querySelector(".portfolio .items");
+
+        items.map((item, index) => {
+            const itemElement = document.createElement("div");
+            itemElement.classList.add("item");
+
+            itemElement.dataset.index = index;
+
+            const btn = document.createElement("button");
+            btn.classList.add("btn");
+            btn.textContent = "More";
+
+            const imageElement = document.createElement("img");
+            imageElement.src = item.image;
+            imageElement.alt = item.label;
+            imageElement.setAttribute("loading", "lazy")
+
+            const textContainer = document.createElement("div")
+            textContainer.classList.add("text")
+
+            const labelElement = document.createElement("h3");
+            labelElement.textContent = item.label;
+
+            const descriptionElement = document.createElement("p");
+            descriptionElement.textContent = item.description;
+
+            const emojiElement = document.createElement("span");
+            emojiElement.textContent = item.emoji;
+            emojiElement.classList.add("icon");
+
+            const linkElement = document.createElement("a");
+            linkElement.href = item.url;
+            linkElement.target = "_blank";
+            linkElement.textContent = item.inDevelopment ? "In Development 🪜" : "View 🖼️";
+
+            textContainer.appendChild(labelElement)
+            textContainer.appendChild(descriptionElement)
+            textContainer.appendChild(emojiElement)
+            textContainer.appendChild(linkElement)
+
+            itemElement.appendChild(imageElement);
+            itemElement.appendChild(textContainer);
+            itemElement.appendChild(btn);
+
+            itemsContainer.appendChild(itemElement);
+
+            btn.addEventListener("click", () => {
+                textContainer.classList.toggle("show");
+                btn.textContent = textContainer.classList.contains("show") ? "Less" : "More";
+            });
+
+        });
+
+        const count = items.length;
+        const countElement = document.createElement("div");
+        countElement.classList.add("count");
+        for (let i = 0; i < count; i++) {
+            const dot = document.createElement("div");
+            dot.classList.add("dot");
+            dot.textContent = "•";
+            countElement.appendChild(dot);
+        }
+
+        const portfolioElement = document.querySelector(".portfolio");
+        portfolioElement.appendChild(countElement);
+
+    }
+
+    document.addEventListener("DOMContentLoaded", load);
+</script>
 
 </html>

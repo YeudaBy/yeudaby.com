@@ -1,17 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 body,
 html {
   height: 100vh;
   width: 100%;
   margin: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 *,
 input,
 textarea,
 button {
-  font-family: "Alegreya", serif;
+  font-family: "Merriweather", serif;
+}
+
+input,
+textarea {
+  font-weight: 300;
+  font-style: italic;
+  font-size: 16px !important;
 }
 
 body {
@@ -28,7 +36,7 @@ html {
 }
 
 section {
-  height: 100vh;
+  min-height: 100vh;
   padding: 3rem;
   position: relative;
   max-width: 1100px;
@@ -64,6 +72,8 @@ section {
   background-size: contain;
   border-radius: 50%;
   z-index: -1;
+  display: inline;
+  vertical-align: sub;
 }
 .header h1,
 .header h2 {
@@ -76,12 +86,12 @@ section {
   line-height: 0.75;
   font-optical-sizing: auto;
   color: #6BDBA9;
-  font-family: "Alegreya", serif;
   background: linear-gradient(214deg, #ADEBCF 0%, #008A46 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   padding: 3rem 0;
+  overflow-wrap: break-word;
 }
 .header h2 {
   font-size: 2rem;
@@ -127,6 +137,199 @@ section {
     right: 1.5rem;
     height: 100%;
   }
+}
+
+.portfolio {
+  position: relative;
+}
+.portfolio .carousel-container {
+  position: relative;
+}
+.portfolio .carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+}
+.portfolio .carousel-button.left {
+  left: 0;
+}
+.portfolio .carousel-button.right {
+  right: 0;
+}
+.portfolio .items {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: auto;
+  padding: 2rem;
+  height: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  padding: 2rem;
+  scroll-behavior: smooth;
+}
+.portfolio .items .item {
+  width: 275px;
+  aspect-ratio: 8/16;
+  border-radius: 2rem;
+  overflow: hidden;
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  /* Prevent items from shrinking */
+  position: relative;
+  box-shadow: 0 0 10px 0 #CDF3E2;
+  border: rgb(68, 68, 68) 5px solid;
+  outline: #2BBB82 5px solid;
+}
+.portfolio .items .item::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  height: 10px;
+  background: #CDF3E2;
+  border-radius: 1rem;
+  z-index: 0;
+}
+.portfolio .items .item .btn {
+  position: absolute;
+  top: 30px;
+  width: -moz-fit-content;
+  width: fit-content;
+  left: 10px;
+  right: 0;
+  transform: translateY(-50%);
+  background: #CDF3E2;
+  color: #4ACB96;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all ease-in-out 500ms;
+  text-transform: uppercase;
+}
+.portfolio .items .item .btn:hover {
+  background: #6BDBA9;
+  color: #004A00;
+}
+.portfolio .items .item img {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.portfolio .items .item .text.show {
+  transform: translateY(0%);
+  opacity: 1;
+}
+.portfolio .items .item .text {
+  position: absolute;
+  bottom: 0;
+  background: #CDF3E2;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all ease-in-out 500ms;
+  border-top-left-radius: 1.25rem;
+  border-top-right-radius: 1.25rem;
+  z-index: 2;
+  width: 245px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  letter-spacing: 0.9px;
+  padding: 1rem;
+}
+.portfolio .items .item .text p {
+  width: 80%;
+}
+.portfolio .items .item .text a {
+  color: #008A46;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0.5rem 1.5rem;
+  border: #008A46 1px solid;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+.portfolio .items .item .text .icon {
+  color: #6BDBA9;
+  font-size: 1rem;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: -50%;
+  border: #4ACB96 1px solid;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 0.5rem;
+  border-radius: 1.25rem;
+  background: #CDF3E2;
+  z-index: 1;
+  margin: auto;
+}
+.portfolio .items .item .text::before {
+  content: "";
+  position: absolute;
+  bottom: 35%;
+  left: 3rem;
+  width: 75%;
+  height: 1rem;
+  background: linear-gradient(214deg, #EEFBF5 0%, #008A46 100%);
+  z-index: -1;
+  opacity: 0.35;
+}
+.portfolio .items .item .text::after {
+  content: "";
+  position: absolute;
+  bottom: calc(35% + 2rem);
+  right: 3rem;
+  width: 75%;
+  height: 1rem;
+  background: linear-gradient(214deg, #008A46 0%, #EEFBF5 100%);
+  z-index: -1;
+  opacity: 0.35;
+}
+.portfolio .count {
+  width: 50%;
+  margin: 0 auto;
+  background: #CDF3E2;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.portfolio .count:hover {
+  background: #6BDBA9;
+  color: #004A00;
+}
+.portfolio .count .dot {
+  color: #2BBB82;
 }
 
 .text {
@@ -315,4 +518,52 @@ section {
 }
 .social a:not(:nth-child(2n)) {
   animation: toLeft 0.7s;
+}
+
+.merriweather-light {
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.merriweather-regular {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.merriweather-bold {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.merriweather-black {
+  font-family: "Merriweather", serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.merriweather-light-italic {
+  font-family: "Merriweather", serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.merriweather-regular-italic {
+  font-family: "Merriweather", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.merriweather-bold-italic {
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.merriweather-black-italic {
+  font-family: "Merriweather", serif;
+  font-weight: 900;
+  font-style: italic;
 }/*# sourceMappingURL=main.css.map */
