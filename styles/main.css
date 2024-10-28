@@ -81,6 +81,7 @@ section {
   margin: 0;
 }
 .header h1 {
+  position: relative;
   font-size: 6rem;
   font-weight: 800;
   line-height: 0.75;
@@ -97,6 +98,45 @@ section {
   font-size: 2rem;
   font-weight: 200;
   color: #6BDBA9;
+}
+@media screen and (max-width: 750px) {
+  .header h1 {
+    font-size: 4rem;
+  }
+  .header h2 {
+    font-size: 1.75rem;
+  }
+  .header .profile {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media screen and (max-width: 530px) {
+  .header h1 {
+    font-size: 3rem;
+  }
+  .header h2 {
+    font-size: 1.5rem;
+  }
+  .header .profile {
+    width: 45px;
+    height: 45px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .header .lastName {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .header .profile {
+    position: absolute;
+    top: -10px;
+    left: 0;
+  }
+  .header h1 {
+    line-height: 3.5rem;
+  }
 }
 .header .down {
   transform: scale(1.5);
@@ -163,7 +203,7 @@ section {
 }
 .portfolio .items {
   display: flex;
-  position: relative;
+  position: absolute;
   flex-direction: row;
   gap: 2rem;
   margin-bottom: 2rem;
@@ -171,16 +211,20 @@ section {
   overflow-y: hidden;
   overflow-x: auto;
   padding: 2rem;
+  padding-right: 2rem;
   height: 100%;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
   display: flex;
   flex-direction: row;
+  right: 0;
   gap: 2rem;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  padding: 2rem;
+  scroll-snap-type: x proximity;
   scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.portfolio .items::-webkit-scrollbar {
+  display: none;
 }
 .portfolio .items .item {
   width: 275px;
@@ -265,6 +309,9 @@ section {
   color: #008A46;
   font-size: 0.9rem;
   text-align: center;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: fill-available;
   padding: 0.5rem 1.5rem;
   border: #008A46 1px solid;
   border-radius: 1rem;
@@ -376,6 +423,13 @@ section {
   z-index: -1;
 }
 
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
 .contact h2 {
   border-bottom: #6BDBA9 2px solid;
   position: relative;
@@ -406,6 +460,13 @@ section {
 }
 .contact form {
   margin-bottom: 2rem;
+}
+.contact form label {
+  font-weight: 800;
+  color: #008A46;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  display: block;
 }
 .contact form input,
 .contact form textarea,
@@ -452,6 +513,22 @@ section {
   color: #6BDBA9;
 }
 
+#social {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+@keyframes magnifyingGlassRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.1);
+  }
+}
 .social {
   display: grid;
   flex-wrap: wrap;

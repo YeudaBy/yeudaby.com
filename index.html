@@ -42,19 +42,6 @@
     <meta name="twitter:description" content="Front End Developer" />
     <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/68661509?v=4" />
     <meta name="twitter:url" content="https://yeudaby.com" />
-
-
-    <script>
-        function scrollCarousel(direction) {
-            const itemsContainer = document.querySelector(".items");
-            const scrollAmount = itemsContainer.clientWidth * 8; // Adjust scroll distance
-            itemsContainer.scrollBy({
-                left: direction * scrollAmount,
-                behavior: "smooth",
-            });
-        }
-    
-    </script>
 </head>
 
 <body>
@@ -92,14 +79,6 @@
             <h2>Yeah, I have proof...</h2>
 
             <div class="items"></div>
-            <div class="carousel-container">
-                <button class="carousel-button left" onclick="scrollCarousel(-1)">&#10094;</button>
-                <div class="items">
-                    <!-- Carousel items go here -->
-                </div>
-                <button class="carousel-button right" onclick="scrollCarousel(1)">&#10095;</button>
-            </div>
-
         </section>
 
         <section class="contact">
@@ -109,12 +88,21 @@
             </h2>
 
             <form action="mailto:yeudaborodyanski@gmail.com" method="get" enctype="text/plain">
-                What do we have to talk about?<br>
+                <label>What do we have to talk about?</label>
                 <input type="text" name="subject" placeholder="Your Name..."><br>
-                I'm here to hear:<br>
+                <label>I'm here to hear:</label>
                 <textarea name="body" rows="5" cols="30" placeholder="Your Message..."></textarea><br>
                 <button type="submit" value="Submit">Send</button>
             </form>
+        </section>
+
+
+        <section id="social">
+
+            <h2>
+                You can also spy on me <span>🔎</span>
+            </h2>
+
 
             <div class="social">
 
@@ -251,7 +239,6 @@
 
         const portfolioElement = document.querySelector(".portfolio");
         portfolioElement.appendChild(countElement);
-
     }
 
     document.addEventListener("DOMContentLoaded", load);

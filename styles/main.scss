@@ -99,6 +99,7 @@ section {
   }
 
   h1 {
+    position: relative;
     font-size: 6rem;
     font-weight: 800;
     line-height: .75;
@@ -116,6 +117,57 @@ section {
     font-size: 2rem;
     font-weight: 200;
     color: $b6;
+  }
+
+  @media screen and (max-width: 750px) {
+    h1 {
+      font-size: 4rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+    }
+
+    .profile {
+      width: 60px;
+      height: 60px;
+    }
+    
+  }
+
+  @media screen and (max-width: 530px) {
+    h1 {
+      font-size: 3rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+    
+    .profile {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  @media screen and (max-width: 370px) {
+    .lastName {
+      font-size: 2.5rem;
+    }
+    
+  }
+  
+  @media screen and (max-width: 500px) {
+    .profile {
+      position:absolute;
+      top: -10px;
+      left: 0;
+    }
+
+    h1 {
+       line-height: 3.5rem;
+    }
+    
   }
 
   .down {
@@ -190,7 +242,7 @@ section {
 
   .items {
     display: flex;
-    position: relative;
+    position: absolute;
     flex-direction: row;
     gap: 2rem;
     margin-bottom: 2rem;
@@ -198,15 +250,23 @@ section {
     overflow-y: hidden;
     overflow-x: auto;
     padding: 2rem;
+    padding-right: 2rem;
     height: 100%;
-    width: fit-content;
+    width: 100%;
     display: flex;
     flex-direction: row;
+    right: 0;
     gap: 2rem;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    padding: 2rem;
+    scroll-snap-type: x proximity;
     scroll-behavior: smooth;
+
+    // hide scrollbar
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     .item {
       width: 275px;
@@ -301,6 +361,9 @@ section {
           color: $b11;
           font-size: 0.9rem;
           text-align: center;
+          width: -moz-available;
+          width: -webkit-fill-available;
+          width: fill-available;
           padding: 0.5rem 1.5rem;
           border: $b11 1px solid;
           border-radius: 1rem;
@@ -430,6 +493,12 @@ section {
 
 .contact {
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+
   h2 {
     border-bottom: $b5 2px solid;
     position: relative;
@@ -464,6 +533,14 @@ section {
   form {
 
     margin-bottom: 2rem;
+
+    label {
+      font-weight: 800;
+      color: $b11;
+      margin-top: 1rem;
+      margin-bottom: .25rem;
+      display: block;
+    }
 
     input,
     textarea,
@@ -517,6 +594,24 @@ section {
     }
 
 
+  }
+}
+
+#social {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+@keyframes magnifyingGlassRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1.1);
   }
 }
 
