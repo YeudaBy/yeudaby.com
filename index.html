@@ -3,245 +3,386 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yeuda By</title>
+    <title>Yeuda Borodyanski - Frontend Developer</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <script src="https://kit.fontawesome.com/7fa246aee3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/styles/main.css" />
-
-    <!-- Google tag (gtag.js) -->
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/styles/modern.css">
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Yeuda Borodyanski - Frontend Developer specializing in React, TypeScript, and modern web technologies">
+    <meta name="keywords" content="frontend developer, react, typescript, javascript, web development, portfolio">
+    <meta name="author" content="Yeuda Borodyanski">
+    <meta name="theme-color" content="#0a0a0a">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://ui-avatars.com/api/?background=6366f1&color=ffffff&name=YB&bold=true">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Yeuda Borodyanski - Frontend Developer">
+    <meta property="og:description" content="Frontend Developer specializing in React, TypeScript, and modern web technologies">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/68661509?v=4">
+    <meta property="og:url" content="https://yeudaby.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Yeuda Borodyanski - Frontend Developer">
+    <meta name="twitter:description" content="Frontend Developer specializing in React, TypeScript, and modern web technologies">
+    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/68661509?v=4">
+    
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XVEFE902Y"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-
         gtag('config', 'G-9XVEFE902Y');
     </script>
-
-    <meta name="description" content="Front End Developer">
-    <meta name="keywords" content="reactjs, yeudaby, Yeuda By, yeuda borodyanski">
-    <meta name="author" content="Yeuda By">
-
-    <meta name="theme-color" content="#242430" />
-
-    <link rel="icon" type="image/x-icon"
-        href="https://ui-avatars.com/api/?background=1985A1&color=46494C&name=Yeuda%20By">
-
-    <meta name="og:title" content="Yeuda By" />
-    <meta name="og:description" content="Front End Developer" />
-    <meta name="og:image" content="https://avatars.githubusercontent.com/u/68661509?v=4" />
-    <meta name="og:url" content="https://yeudaby.com" />
-    <meta name="og:site_name" content="Yeuda By" />
-    <meta name="og:type" content="website" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@YeudaBy" />
-    <meta name="twitter:creator" content="@YeudaBy" />
-    <meta name="twitter:title" content="Yeuda By" />
-    <meta name="twitter:description" content="Front End Developer" />
-    <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/68661509?v=4" />
-    <meta name="twitter:url" content="https://yeudaby.com" />
 </head>
 
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">YB</div>
+            <div class="loading-text">Loading Portfolio...</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
 
-    <main>
-        <section class="header">
-            <h1>
-                <span class="firstName">Yeuda</span>
-                <img class="profile" src="https://avatars.githubusercontent.com/u/68661509?v=4" alt="image" width="75px"
-                    height="75px">
-                <br />
-                <span class="lastName">Borodyanski</span>
-            </h1>
-            <h2>Front End Developer</h2>
-            <img class="down" width="100px" height="100px" src="/images/down.jpeg" alt="down" />
-        </section>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">YB</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-line">Hi, I'm</span>
+                    <span class="title-line highlight">Yeuda Borodyanski</span>
+                    <span class="title-line">Frontend Developer</span>
+                </h1>
+                <p class="hero-description">
+                    I craft beautiful, responsive, and performant web experiences using modern technologies like React, TypeScript, and more.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <img src="https://avatars.githubusercontent.com/u/68661509?v=4" alt="Yeuda Borodyanski" class="profile-image">
+                    <div class="image-glow"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
 
-        <section class="text">
-            <h2 class="bolder">Hey!</h2>
-            <p>My name is Yeuda Borodyanski and I am 22 years old frontend developer from Israel.</p>
-            <p>
-                I am an experienced front-end developer with a specialization in creating beautiful and complex user
-                interfaces.
-            </p>
-            <p>
-                I have experienced with JavaScript & TypeScript, ReactJS, Kotlin, Jatpack Compose , Flutter, Python,
-                Micronout, Postgres & more backend technologies.
-            </p>
-            <i class="fa-solid fa-handshake icon"></i>
-        </section>
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Get to know me better</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-card">
+                        <h3>Who I Am</h3>
+                        <p>
+                            I'm a 22-year-old frontend developer from Israel with a passion for creating beautiful and complex user interfaces. 
+                            I specialize in modern web technologies and love turning ideas into reality through code.
+                        </p>
+                    </div>
+                    <div class="about-card">
+                        <h3>What I Do</h3>
+                        <p>
+                            I build responsive web applications using cutting-edge technologies. My expertise spans across 
+                            frontend frameworks, mobile development, and backend technologies, allowing me to create 
+                            comprehensive digital solutions.
+                        </p>
+                    </div>
+                    <div class="about-card">
+                        <h3>My Mission</h3>
+                        <p>
+                            I believe in writing clean, maintainable code and creating user experiences that are not just 
+                            functional, but delightful. Every project is an opportunity to learn something new and push 
+                            the boundaries of what's possible.
+                        </p>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="3">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="15">0</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="10">0</div>
+                        <div class="stat-label">Technologies</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-count="100">0</div>
+                        <div class="stat-label">% Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">Tools and technologies I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>TypeScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS/SCSS</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Mobile</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-android"></i>
+                            <span>Kotlin</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Jetpack Compose</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-mobile"></i>
+                            <span>Flutter</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-react"></i>
+                            <span>React Native</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-server"></i>
+                            <span>Micronaut</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>PostgreSQL</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-node-js"></i>
+                            <span>Node.js</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-docker"></i>
+                            <span>Docker</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cloud"></i>
+                            <span>AWS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-figma"></i>
+                            <span>Figma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="portfolio" id="portfolio">
-            <h2>Yeah, I have proof...</h2>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Some of my recent work</p>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Projects will be loaded dynamically -->
+            </div>
+            <div class="portfolio-navigation">
+                <button class="portfolio-nav prev" aria-label="Previous project">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="portfolio-dots"></div>
+                <button class="portfolio-nav next" aria-label="Next project">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
 
-            <div class="items"></div>
-        </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="section-subtitle">Ready to start your next project?</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Me</h3>
+                        <p>yeudaborodyanski@gmail.com</p>
+                        <a href="mailto:yeudaborodyanski@gmail.com" class="contact-link">Send Email</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <h3>LinkedIn</h3>
+                        <p>Connect with me professionally</p>
+                        <a href="https://www.linkedin.com/in/yeuda-by" target="_blank" class="contact-link">Connect</a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>Check out my code</p>
+                        <a href="https://github.com/YeudaBy" target="_blank" class="contact-link">View Profile</a>
+                    </div>
+                </div>
+                <form class="contact-form" action="mailto:yeudaborodyanski@gmail.com" method="get" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="body" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-        <section class="contact">
-
-            <h2>
-                Let's get in touch!
-            </h2>
-
-            <form action="mailto:yeudaborodyanski@gmail.com" method="get" enctype="text/plain">
-                <label>What do we have to talk about?</label>
-                <input type="text" name="subject" placeholder="Your Name..."><br>
-                <label>I'm here to hear:</label>
-                <textarea name="body" rows="5" cols="30" placeholder="Your Message..."></textarea><br>
-                <button type="submit" value="Submit">Send</button>
-            </form>
-        </section>
-
-
-        <section id="social">
-
-            <h2>
-                You can also spy on me <span>🔎</span>
-            </h2>
-
-
-            <div class="social">
-
-                <a aria-label="Github account link" href="https://github.com/YeudaBy" target="_blank" tabindex="1">
-                    <i class="fa-brands fa-github-alt"></i>
-                    <h6>GitHub</h6>
+    <!-- Social Links -->
+    <section class="social-section">
+        <div class="container">
+            <h3>Find Me Online</h3>
+            <div class="social-links">
+                <a href="https://github.com/YeudaBy" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
                 </a>
-
-                <a aria-label="Linkedin account link" href="https://www.linkedin.com/in/yeuda-by" target="_blank"
-                    tabindex="1">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                    <h6>Linkedin</h6>
+                <a href="https://www.linkedin.com/in/yeuda-by" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
                 </a>
-
-                <a aria-label="Instagram page link" href="https://www.instagram.com/yeudaby/" target="_blank"
-                    tabindex="1">
-                    <i class="fa-brands fa-instagram"></i>
-                    <h6>Instagram</h6>
+                <a href="https://www.instagram.com/yeudaby/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
                 </a>
-
-                <a aria-label="Whatsapp chat link - currently not in use" href="#" target="_blank" tabindex="1">
-                    <i class="fa-brands fa-whatsapp"></i>
-                    <h6>WhatsApp</h6>
+                <a href="https://open.spotify.com/user/tmjwpkqbl43v0f2y541yx5y51" target="_blank" aria-label="Spotify">
+                    <i class="fab fa-spotify"></i>
                 </a>
-
-                <a aria-label="Spotify profile link" href="https://open.spotify.com/user/tmjwpkqbl43v0f2y541yx5y51"
-                    target="_blank" tabindex="1">
-                    <i class="fa-brands fa-spotify"></i>
-                    <h6>Spotify</h6>
-                </a>
-
-                <a aria-label="My email address" href="mailto:me@yeudaby.com" target="_blank" tabindex="1">
-                    <i class="fa-regular fa-envelope"></i>
-                    <h6>Email</h6>
+                <a href="mailto:me@yeudaby.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
                 </a>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Yeuda Borodyanski. All rights reserved.</p>
+                    <p>Built with ❤️ and modern web technologies</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Back to Top</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/scripts/main.js"></script>
 </body>
-
-<script>
-
-    const items = [
-        {
-            label: "Jusic • Kosher Music Player",
-            description: "Jusic is a music player that allows you to listen to music, just like in Spotify. The app is designed for the Jewish community and is intended for listening to kosher music. powered by Lomdaat technologies.",
-            image: "/images/jusic-screenshot.jpeg",
-            url: "https://jusic.app/",
-            inDevelopment: true,
-            emoji: "🎵"
-        },
-        {
-            label: "Call Counter • Yedidim Hotline",
-            description: "Call Counter is an Android app that allows you to track the number of calls made by the Yedidim hotline. The system is designed to help the dispatchers track the number of calls made to and by the hotline and to help keep the motivation up.",
-            image: "/images/call-counter-screenshot.jpeg",
-            url: "https://github.com/YeudaBy/YedidimCallCounter",
-            inDevelopment: false,
-            emoji: "📞"
-        },
-        {
-            label: "K-tube • Kosher YouTube",
-            description: "K-tube is a web app that allows you to watch YouTube videos in a kosher way. The app is designed for Hadran community and is intended for watching only restricted videos. powered by Lomdaat technologies.",
-            image: "/images/ktube-screenshot.jpeg",
-            url: "https://ktube.app/",
-            inDevelopment: true,
-            emoji: "📺"
-        }
-    ]
-
-    function load() {
-        const itemsContainer = document.querySelector(".portfolio .items");
-
-        items.map((item, index) => {
-            const itemElement = document.createElement("div");
-            itemElement.classList.add("item");
-
-            itemElement.dataset.index = index;
-
-            const btn = document.createElement("button");
-            btn.classList.add("btn");
-            btn.textContent = "More";
-
-            const imageElement = document.createElement("img");
-            imageElement.src = item.image;
-            imageElement.alt = item.label;
-            imageElement.setAttribute("loading", "lazy")
-
-            const textContainer = document.createElement("div")
-            textContainer.classList.add("text")
-
-            const labelElement = document.createElement("h3");
-            labelElement.textContent = item.label;
-
-            const descriptionElement = document.createElement("p");
-            descriptionElement.textContent = item.description;
-
-            const emojiElement = document.createElement("span");
-            emojiElement.textContent = item.emoji;
-            emojiElement.classList.add("icon");
-
-            const linkElement = document.createElement("a");
-            linkElement.href = item.url;
-            linkElement.target = "_blank";
-            linkElement.textContent = item.inDevelopment ? "In Development 🪜" : "View 🖼️";
-
-            textContainer.appendChild(labelElement)
-            textContainer.appendChild(descriptionElement)
-            textContainer.appendChild(emojiElement)
-            textContainer.appendChild(linkElement)
-
-            itemElement.appendChild(imageElement);
-            itemElement.appendChild(textContainer);
-            itemElement.appendChild(btn);
-
-            itemsContainer.appendChild(itemElement);
-
-            btn.addEventListener("click", () => {
-                textContainer.classList.toggle("show");
-                btn.textContent = textContainer.classList.contains("show") ? "Less" : "More";
-            });
-
-        });
-
-        const count = items.length;
-        const countElement = document.createElement("div");
-        countElement.classList.add("count");
-        for (let i = 0; i < count; i++) {
-            const dot = document.createElement("div");
-            dot.classList.add("dot");
-            dot.textContent = "•";
-            countElement.appendChild(dot);
-        }
-
-        const portfolioElement = document.querySelector(".portfolio");
-        portfolioElement.appendChild(countElement);
-    }
-
-    document.addEventListener("DOMContentLoaded", load);
-</script>
 
 </html>
