@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>שיתוף לוואטסאפ</title>
+  <style>
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>כל שיטות השיתוף לוואטסאפ</h1>
+
+  <!-- שיטה 1: לינק עם api.whatsapp.com -->
+  <button onclick="location.href='https://api.whatsapp.com/send?text=שיטה%201'">שיטה 1</button>
+
+  <!-- שיטה 2: לינק עם wa.me -->
+  <button onclick="location.href='https://wa.me/?text=שיטה%202'">שיטה 2</button>
+
+  <!-- שיטה 3: URI scheme whatsapp://send -->
+  <button onclick="location.href='whatsapp://send?text=שיטה%203'">שיטה 3</button>
+
+  <!-- שיטה 4: window.open עם api.whatsapp -->
+  <button onclick="window.open('https://api.whatsapp.com/send?text=שיטה%204')">שיטה 4</button>
+
+  <!-- שיטה 5: window.open עם wa.me -->
+  <button onclick="window.open('https://wa.me/?text=שיטה%205')">שיטה 5</button>
+
+  <!-- שיטה 6: window.location.href ל-whatsapp:// -->
+  <button onclick="window.location.href='whatsapp://send?text=שיטה%206'">שיטה 6</button>
+
+  <!-- שיטה 7: <a> עם api.whatsapp.com -->
+  <a href="https://api.whatsapp.com/send?text=שיטה%207" target="_blank">
+    <button>שיטה 7</button>
+  </a>
+
+  <!-- שיטה 8: <a> עם wa.me -->
+  <a href="https://wa.me/?text=שיטה%208" target="_blank">
+    <button>שיטה 8</button>
+  </a>
+
+  <!-- שיטה 9: <a> עם whatsapp:// URI -->
+  <a href="whatsapp://send?text=שיטה%209" target="_blank">
+    <button>שיטה 9</button>
+  </a>
+
+  <!-- שיטה 10: יצירת אלמנט דינמית עם JavaScript -->
+  <button onclick="let a=document.createElement('a');a.href='https://api.whatsapp.com/send?text=שיטה%2010';a.target='_blank';a.click();">
+    שיטה 10
+  </button>
+
+  <!-- שיטה 11: שינוי location ב-setTimeout -->
+  <button onclick="setTimeout(()=>{location.href='https://wa.me/?text=שיטה%2011'}, 100);">
+    שיטה 11
+  </button>
+
+</body>
+</html>
