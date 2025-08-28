@@ -6,31 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-        <!-- Open Graph -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Yeuda Borodyanski - Frontend Developer">
-    <meta property="og:description" content="Frontend Developer specializing in React, TypeScript, and cutting-edge web technologies">
+    <meta property="og:description"
+        content="Frontend Developer specializing in React, TypeScript, and cutting-edge web technologies">
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/68661509?v=4">
     <meta property="og:url" content="https://yeudaby.com">
     <meta property="og:type" content="website">
 
-        
+
     <!-- Meta Tags -->
-    <meta name="description" content="Yeuda Borodyanski - Frontend Developer specializing in React, TypeScript, and cutting-edge web technologies">
-    <meta name="keywords" content="frontend developer, react, typescript, javascript, web development, portfolio, modern web, 2025">
+    <meta name="description"
+        content="Yeuda Borodyanski - Frontend Developer specializing in React, TypeScript, and cutting-edge web technologies">
+    <meta name="keywords"
+        content="frontend developer, react, typescript, javascript, web development, portfolio, modern web, 2025">
     <meta name="author" content="Yeuda Borodyanski">
     <meta name="theme-color" content="#55AAAA">
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Yeuda Borodyanski - Frontend Developer">
-    <meta name="twitter:description" content="Frontend Developer specializing in React, TypeScript, and cutting-edge web technologies">
+    <meta name="twitter:description"
+        content="Frontend Developer specializing in React, TypeScript, and cutting-edge web technologies">
     <meta name="twitter:image" content="https://avatars.githubusercontent.com/u/68661509?v=4">
-    
+
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XVEFE902Y"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-9XVEFE902Y');
     </script>
@@ -60,39 +64,51 @@
             <!-- TODO: mobile and tabs -->
 
             <ul id="tech-list">
+                <div class="top">
+                    <i data-lucide="arrow-big-up-dash"></i>
+                </div>
                 <li>
-                    <i data-lucide="layout-template"></i>
-                    <a href="#websites">websites ></a>
+                    <a href="#websites">
+                        <i data-lucide="layout-template"></i>
+                        <span>websites</span>
+                    </a>
                 </li>
                 <li>
-                    <i data-lucide="database-zap"></i>
-                    <a href="#backend">backend ></a>
+                    <a href="#backend">
+                        <i data-lucide="database-zap"></i>
+                        <span>backend</span>
+                    </a>
                 </li>
                 <li>
-                    <i data-lucide="smartphone"></i>
-                    <a href="#android">android ></a>
+                    <a href="#android">
+                        <i data-lucide="smartphone"></i>
+                        <span>android</span>
+                    </a>
                 </li>
                 <li>
-                    <i data-lucide="apple"></i>
-                    <a href="#ios">ios ></a>
+                    <a href="#ios">
+                        <i data-lucide="apple"></i>
+                        <span>ios</span>
+                    </a>
                 </li>
                 <li>
-                    <i data-lucide="watch"></i>
-                    <a href="#watchos">watchos ></a>
+                    <a href="#watchos">
+                        <i data-lucide="watch"></i>
+                        <span>watchos</span>
+                    </a>
                 </li>
             </ul>
         </nav>
     </div>
 
     <section class="intro">
-        <div class="lamp"></div>
+        <!-- <div class="lamp"></div> -->
 
         <div class="heading">
 
             <div class="text">
                 <h2>
-                    <span>full</span>
-                    <span>stack</span>
+                    <span>full stack</span>
                     <span>developer</span>
                 </h2>
 
@@ -170,6 +186,64 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         lucide.createIcons();
+    </script>
+    <script>
+        const topButton = document.querySelector('.top');
+        topButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition > window.innerHeight) {
+                topButton.style.opacity = '1';
+            } else {
+                topButton.style.opacity = '0';
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+
+        const cwrd = document.querySelector('.text>h2>:first-child');
+        console.log(cwrd);
+
+        const words = [
+            'full stack',
+            'frontend',
+            'backend',
+            'mobile',
+            'web',
+            'software',
+            'react',
+            'typescript',
+            'javascript',
+            'kotlin',
+            'swift',
+            'rust',
+            'python'
+        ]
+        const currentIndex = 0;
+        setInterval(() => {
+            let newIndex = Math.floor(Math.random() * words.length);
+            while (newIndex === currentIndex) {
+                newIndex = Math.floor(Math.random() * words.length);
+            }
+            const word = words[newIndex];
+            for (let i = 0; i < word.length; i++) {
+                setTimeout(() => {
+                    cwrd.textContent = word.slice(0, i + 1);
+                }, i * 100);
+            }
+        }, 5000);
+
     </script>
 </body>
 
