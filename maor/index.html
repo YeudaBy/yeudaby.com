@@ -6,9 +6,12 @@
 <title>מזמור לתודה - יוצר תמונות</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700;900&family=David+Libre:wght@400;500;700&family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alef:wght@400;700&family=Assistant:wght@400;600;700;800&family=David+Libre:wght@400;500;700&family=Frank+Ruhl+Libre:wght@400;500;700;900&family=Heebo:wght@400;700;900&family=Rubik:wght@400;500;700;800&family=Secular+One&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 <style>
+  :root {
+    --font-display: 'Frank Ruhl Libre', 'David Libre', 'David', serif;
+  }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; background: #1a1a1a; color: #eee; font-family: 'Heebo', system-ui, sans-serif; min-height: 100vh; }
   body { padding: 12px; padding-bottom: 60px; }
@@ -58,7 +61,7 @@
   .dedication {
     flex: 1; background: rgba(60, 60, 70, 0.92); border-radius: 6px;
     padding: 3cqw 4cqw; color: #ff5722; text-align: center;
-    font-family: 'Frank Ruhl Libre', 'David Libre', 'David', serif;
+    font-family: var(--font-display);
     font-weight: 700; font-size: 5.5cqw; line-height: 1.25;
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 1px 4px rgba(0,0,0,.3); min-height: 14cqw;
@@ -73,7 +76,7 @@
   .omer {
     width: 100%; padding: 2.5cqw 4cqw; border-radius: 6px;
     color: #e91e63; text-align: center;
-    font-family: 'Frank Ruhl Libre', 'David Libre', 'David', serif;
+    font-family: var(--font-display);
     font-weight: 700; line-height: 1.35;
   }
   .omer.with-bg { background: rgba(255,255,255,.55); }
@@ -86,7 +89,7 @@
   .psalm {
     width: 100%; padding: 4cqw 4cqw; border-radius: 8px;
     color: #111; text-align: center; direction: rtl;
-    font-family: 'Frank Ruhl Libre', 'David Libre', 'David', serif;
+    font-family: var(--font-display);
     font-weight: 500; line-height: 1.55;
     /* גמיש - תופס את כל המקום הפנוי, פונט נקבע ב-JS */
     flex: 1 1 0; min-height: 0;
@@ -164,6 +167,21 @@
       <button type="button" data-bg="light">עדין</button>
       <button type="button" data-bg="none">ללא</button>
     </div>
+  </div>
+
+  <div class="panel">
+    <h2>גופן לטקסט</h2>
+    <label for="fontPreset">בחר גופן לתמונה</label>
+    <select id="fontPreset">
+      <option value="frank-ruhl">פרנק ריהל ליברה</option>
+      <option value="david-libre">דוד ליברה</option>
+      <option value="heebo">היבו</option>
+      <option value="assistant">אסיסטנט</option>
+      <option value="alef">אלף</option>
+      <option value="rubik">רוביק</option>
+      <option value="secular-one">סקולר וואן</option>
+    </select>
+    <div class="hint">הבחירה תחול על ההקדשה, ספירת העומר והמזמור.</div>
   </div>
 
   <div class="panel actions">
@@ -288,10 +306,39 @@ const state = {
   omerMode: 'none', // none | with | without
   omerDay: 1,
   bgIntensity: 'strong',
+  fontPreset: 'frank-ruhl',
 };
+
+const FONT_PRESETS = {
+  'frank-ruhl': { css: "'Frank Ruhl Libre', 'David Libre', 'David', serif", load: "'Frank Ruhl Libre'" },
+  'david-libre': { css: "'David Libre', 'Frank Ruhl Libre', 'David', serif", load: "'David Libre'" },
+  'heebo': { css: "'Heebo', 'Arial Hebrew', sans-serif", load: "'Heebo'" },
+  'assistant': { css: "'Assistant', 'Heebo', sans-serif", load: "'Assistant'" },
+  'alef': { css: "'Alef', 'Heebo', sans-serif", load: "'Alef'" },
+  'rubik': { css: "'Rubik', 'Heebo', sans-serif", load: "'Rubik'" },
+  'secular-one': { css: "'Secular One', 'Heebo', sans-serif", load: "'Secular One'" },
+};
+
+function activeFontPreset() {
+  return FONT_PRESETS[state.fontPreset] || FONT_PRESETS['frank-ruhl'];
+}
+
+async function ensureDisplayFontLoaded() {
+  if (!document.fonts || !document.fonts.load) return;
+  const preset = activeFontPreset();
+  await Promise.allSettled([
+    document.fonts.load(`700 32px ${preset.load}`),
+    document.fonts.load(`500 32px ${preset.load}`),
+  ]);
+}
 
 // ===== render =====
 function render() {
+  document.documentElement.style.setProperty(
+    '--font-display',
+    activeFontPreset().css
+  );
+
   const bgEl = document.getElementById('bgEl');
   if (state.bgUrl) {
     if (bgEl.tagName !== 'IMG') {
@@ -434,15 +481,23 @@ document.querySelectorAll('#bgIntensity button').forEach(btn => {
   });
 });
 
+document.getElementById('fontPreset').addEventListener('change', async (e) => {
+  state.fontPreset = e.target.value;
+  await ensureDisplayFontLoaded();
+  render();
+});
+
 document.getElementById('resetBtn').addEventListener('click', () => {
   if (!confirm('לאפס את כל השדות?')) return;
   state.bgUrl = null; state.bgWidth = 1080; state.bgHeight = 1920;
   state.dedication = ''; state.showSticker = true;
   state.omerMode = 'none'; state.omerDay = 1; state.bgIntensity = 'strong';
+  state.fontPreset = 'frank-ruhl';
   document.getElementById('bgFile').value = '';
   document.getElementById('dedication').value = '';
   document.getElementById('showSticker').checked = true;
   document.getElementById('omerDay').value = 1;
+  document.getElementById('fontPreset').value = 'frank-ruhl';
   document.querySelectorAll('#omerMode button').forEach((b,i) => b.classList.toggle('active', i===0));
   document.querySelectorAll('#bgIntensity button').forEach((b,i) => b.classList.toggle('active', i===0));
   // החזר את ה-bg ל-placeholder ואת יחס ה-stage לדיפולט (סטורי 9:16)
@@ -462,6 +517,8 @@ document.getElementById('downloadBtn').addEventListener('click', async () => {
   const orig = btn.textContent;
   btn.textContent = '⏳ מכין תמונה...';
   btn.disabled = true;
+
+  await ensureDisplayFontLoaded();
 
   // ייצוא לפי המידות המקוריות של תמונת הרקע - בלי מריחה ובלי מתיחה
   // נגביל גודל מקסימלי כדי לא לקרוס את הדפדפן
@@ -530,6 +587,9 @@ document.getElementById('downloadBtn').addEventListener('click', async () => {
 });
 
 render();
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(() => render());
+}
 </script>
 </body>
 </html>
