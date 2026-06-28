@@ -605,6 +605,15 @@ footer {
         font-size: 1rem !important;
     }
 
+    .pyweb-card .bento-content {
+        min-height: 380px;
+    }
+
+    .pyweb-card .watermark-icon svg {
+        width: 250px;
+        height: 250px;
+    }
+
     .content-with-image {
         flex-direction: column;
         gap: 1.25rem;
