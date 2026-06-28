@@ -468,7 +468,7 @@ body {
     position: absolute;
     bottom: -40px;
     right: -40px;
-    opacity: 0.03;
+    opacity: 0.08;
     z-index: 0;
     pointer-events: none;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
