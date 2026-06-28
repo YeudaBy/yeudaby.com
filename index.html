@@ -278,6 +278,7 @@
     discoBtn.addEventListener('click', () => {
         isDiscoMode = !isDiscoMode;
         if (isDiscoMode) {
+            if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
             discoBtn.innerHTML = '<i data-lucide="zap-off"></i><span>Stop Disco</span>';
             lucide.createIcons();
             
@@ -311,6 +312,7 @@
             discoIntervals.push(bgInterval);
             
         } else {
+            if (navigator.vibrate) navigator.vibrate(100);
             // Restore Order
             discoBtn.innerHTML = '<i data-lucide="zap"></i><span>Disco Mode</span>';
             lucide.createIcons();
