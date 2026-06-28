@@ -179,7 +179,7 @@ a {
                 font-size: 1rem;
 
                 @media screen and (max-width: 600px) {
-                    a > span {
+                    a>span {
                         display: none;
                     }
 
@@ -430,6 +430,26 @@ a {
         justify-content: center;
     }
 
+    h5 {
+        font-family: "Doto", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 800;
+        font-style: normal;
+        font-variation-settings:
+            "ROND" 0;
+        font-size: 1.5rem;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 1rem;
+        left: 1rem;
+        color: var(--color-primary);
+
+        @media (max-width: 550px) {
+            font-size: 1rem;
+        }
+    }
+
     .types {
         display: grid;
         grid-template-columns: repeat(2, 250px);
@@ -502,26 +522,6 @@ a {
                 }
             }
 
-        }
-    }
-
-    p {
-        font-family: "Doto", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 800;
-        font-style: normal;
-        font-variation-settings:
-            "ROND" 0;
-        font-size: 1.5rem;
-        margin: 0;
-        padding: 0;
-        position: absolute;
-        bottom: 1rem;
-        left: 1rem;
-        color: var(--color-primary);
-
-        @media (max-width: 550px) {
-            font-size: 1rem;
         }
     }
 }
