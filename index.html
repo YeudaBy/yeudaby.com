@@ -274,6 +274,8 @@
     const discoBtn = document.getElementById('disco-toggle');
     const boxes = document.querySelectorAll('.bento-item');
     const title = document.querySelector('.glitch-wrapper');
+    const discoAudio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3');
+    discoAudio.loop = true;
 
     discoBtn.addEventListener('click', () => {
         isDiscoMode = !isDiscoMode;
@@ -281,6 +283,7 @@
             if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
             discoBtn.innerHTML = '<i data-lucide="zap-off"></i><span>Stop Disco</span>';
             lucide.createIcons();
+            discoAudio.play().catch(e => console.log("Audio playback requires user interaction"));
             
             // Unleash Chaos
             boxes.forEach((item) => {
@@ -316,6 +319,8 @@
             // Restore Order
             discoBtn.innerHTML = '<i data-lucide="zap"></i><span>Disco Mode</span>';
             lucide.createIcons();
+            discoAudio.pause();
+            discoAudio.currentTime = 0;
             
             discoIntervals.forEach(clearInterval);
             discoIntervals = [];
