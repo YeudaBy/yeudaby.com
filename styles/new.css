@@ -86,14 +86,20 @@ body {
     left: 3px;
     text-shadow: -2px 0 var(--accent-red);
     clip: rect(24px, 550px, 90px, 0);
-    animation: glitch-anim 3s infinite linear alternate-reverse;
+    animation: glitch-anim 3s infinite linear alternate-reverse, glitch-stop 4s forwards;
 }
 
 .glitch::after {
     left: -3px;
     text-shadow: -2px 0 #555555;
     clip: rect(85px, 550px, 140px, 0);
-    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+    animation: glitch-anim 2.5s infinite linear alternate-reverse, glitch-stop 4s forwards;
+}
+
+@keyframes glitch-stop {
+    0% { visibility: visible; }
+    99% { visibility: visible; }
+    100% { visibility: hidden; }
 }
 
 @keyframes glitch-anim {
