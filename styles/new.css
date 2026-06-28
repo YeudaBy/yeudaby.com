@@ -415,17 +415,17 @@ body {
 
 /* DOT PATTERNS */
 .featured-dots {
-    background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
+    background-image: radial-gradient(#3a3a3a 1px, transparent 1px);
     background-size: 16px 16px;
     background-position: center;
 }
 
 .featured-dots:hover {
-    background-image: radial-gradient(#333 1px, transparent 1px);
+    background-image: radial-gradient(#555555 1px, transparent 1px);
 }
 
 .featured-dots .bento-content {
-    background: linear-gradient(to bottom, rgba(5,5,5,1) 0%, rgba(5,5,5,0.7) 100%);
+    background: linear-gradient(to bottom, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.4) 100%);
 }
 
 .dashed-grid {
@@ -439,8 +439,8 @@ body {
     z-index: 0;
     pointer-events: none;
     background-image: 
-        linear-gradient(to right, #333 1px, transparent 1px),
-        linear-gradient(to bottom, #333 1px, transparent 1px);
+        linear-gradient(to right, #444 1px, transparent 1px),
+        linear-gradient(to bottom, #444 1px, transparent 1px);
     background-size: 20px 20px;
     background-position: 0 0, 0 0;
     mask-image: 
@@ -456,12 +456,12 @@ body {
 
 .dashed-grid:hover::before {
     background-image: 
-        linear-gradient(to right, #4a4a4a 1px, transparent 1px),
-        linear-gradient(to bottom, #4a4a4a 1px, transparent 1px);
+        linear-gradient(to right, #5a5a5a 1px, transparent 1px),
+        linear-gradient(to bottom, #5a5a5a 1px, transparent 1px);
 }
 
 .dashed-grid .bento-content {
-    background: linear-gradient(to bottom, rgba(5,5,5,1) 0%, rgba(5,5,5,0.7) 100%);
+    background: linear-gradient(to bottom, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.4) 100%);
 }
 
 .watermark-icon {
