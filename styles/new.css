@@ -636,4 +636,9 @@ footer {
         text-align: center;
         margin-top: 4rem;
     }
+
+    .background-pattern {
+        -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 70%);
+        mask-image: linear-gradient(to top, #000 0%, transparent 70%);
+    }
 }
