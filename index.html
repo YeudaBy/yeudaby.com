@@ -33,8 +33,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body>
-
+<body class="bg-black text-white selection:bg-red-500/30">
+    <button id="disco-toggle" class="contact-btn" style="position: fixed; top: 20px; right: 20px; z-index: 10000; background: rgba(5,5,5,0.8); backdrop-filter: blur(5px);">
+        <i data-lucide="zap"></i>
+        <span>Disco Mode</span>
+    </button>
     <div class="background-pattern"></div>
     <div class="noise-overlay"></div>
 
@@ -263,5 +266,70 @@
     <script>
         lucide.createIcons();
     </script>
+
+<script>
+    // 🪩 DISCO MODE TOGGLE 🪩
+    let discoIntervals = [];
+    let isDiscoMode = false;
+    const discoBtn = document.getElementById('disco-toggle');
+    const boxes = document.querySelectorAll('.bento-item');
+    const title = document.querySelector('.glitch-wrapper');
+
+    discoBtn.addEventListener('click', () => {
+        isDiscoMode = !isDiscoMode;
+        if (isDiscoMode) {
+            discoBtn.innerHTML = '<i data-lucide="zap-off"></i><span>Stop Disco</span>';
+            lucide.createIcons();
+            
+            // Unleash Chaos
+            boxes.forEach((item) => {
+                const interval = setInterval(() => {
+                    const rx = (Math.random() - 0.5) * 120;
+                    const ry = (Math.random() - 0.5) * 120;
+                    const rz = (Math.random() - 0.5) * 90;
+                    const tx = (Math.random() - 0.5) * 300;
+                    const ty = (Math.random() - 0.5) * 300;
+                    const s = 0.5 + Math.random() * 1.5;
+                    item.style.transition = 'all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                    item.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) rotateZ(${rz}deg) translate3d(${tx}px, ${ty}px, 0) scale(${s})`;
+                    item.style.borderColor = ['#ea3323', '#00ff00', '#00ffff', '#ff00ff', '#ffff00'][Math.floor(Math.random()*5)];
+                    item.style.boxShadow = `0 0 50px ${item.style.borderColor}`;
+                    item.style.zIndex = Math.floor(Math.random() * 100);
+                }, 800 + Math.random() * 1000);
+                discoIntervals.push(interval);
+            });
+
+            title.style.transition = 'transform 0.5s ease';
+            const titleInterval = setInterval(() => {
+                title.style.transform = `rotate(${(Math.random() - 0.5) * 90}deg) scale(${1 + Math.random() * 0.5})`;
+            }, 500);
+            discoIntervals.push(titleInterval);
+
+            const bgInterval = setInterval(() => {
+                document.body.style.filter = Math.random() > 0.8 ? 'invert(1) hue-rotate(90deg)' : 'none';
+            }, 300);
+            discoIntervals.push(bgInterval);
+            
+        } else {
+            // Restore Order
+            discoBtn.innerHTML = '<i data-lucide="zap"></i><span>Disco Mode</span>';
+            lucide.createIcons();
+            
+            discoIntervals.forEach(clearInterval);
+            discoIntervals = [];
+            
+            boxes.forEach(item => {
+                item.style.transform = '';
+                item.style.borderColor = '';
+                item.style.boxShadow = '';
+                item.style.zIndex = '';
+                item.style.transition = 'background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease'; // Restore original transition
+            });
+            title.style.transform = '';
+            title.style.transition = '';
+            document.body.style.filter = '';
+        }
+    });
+</script>
 </body>
 </html>
